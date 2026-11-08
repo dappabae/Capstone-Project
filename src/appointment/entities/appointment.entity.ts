@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 import { PatientEntity } from '../../patient/entities/patient.entity.js';
 import { DoctorEntity } from '../../doctor/entities/doctor.entity.js';
+import { MedicalRecordEntity } from '../../medical-record/entities/medical-record.entity.js';
 
 @Entity({ name: 'appointments' })
 export class AppointmentEntity {
@@ -36,8 +37,8 @@ export class AppointmentEntity {
   @Column({ type: 'varchar', length: 50, default: 'Scheduled' })
   status: string; // Contoh: Scheduled, Completed, Cancelled
 
-  @OneToMany('MedicalRecordEntity', 'appointment')
-  medicalRecords: any[];
+  @OneToMany(() => MedicalRecordEntity, (medicalRecord) => medicalRecord.appointment)
+  medicalRecords: MedicalRecordEntity[];
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
