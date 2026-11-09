@@ -1,0 +1,446 @@
+{
+  "info": {
+    "name": "Clinic API Collection",
+    "description": "Postman collection for Clinic Backend API (NestJS + PostgreSQL)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_variable_scope": "variables"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Patients",
+      "item": [
+        {
+          "name": "Get All Patients",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/patients",
+            "description": "Get all patients"
+          }
+        },
+        {
+          "name": "Get Patient by ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/patients/:id",
+            "description": "Get patient by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Patient ID"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Create Patient",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/patients",
+            "description": "Create a new patient",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"birthDate\": \"1990-01-15\",\n  \"gender\": \"Laki-laki\",\n  \"address\": \"Jl. Merdeka No. 123, Jakarta\",\n  \"phone\": \"08123456789\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Patient",
+          "request": {
+            "method": "PATCH",
+            "url": "{{base_url}}/patients/:id",
+            "description": "Update patient by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Patient ID"
+              }
+            ],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe Updated\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Patient",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/patients/:id",
+            "description": "Delete patient by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Patient ID"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Doctors",
+      "item": [
+        {
+          "name": "Get All Doctors",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/doctors",
+            "description": "Get all doctors"
+          }
+        },
+        {
+          "name": "Get Doctor by ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/doctors/:id",
+            "description": "Get doctor by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Doctor ID"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Create Doctor",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/doctors",
+            "description": "Create a new doctor",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dr. Sarah Johnson\",\n  \"specialization\": \"Cardiology\",\n  \"phone\": \"08123456789\",\n  \"departmentId\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Doctor",
+          "request": {
+            "method": "PATCH",
+            "url": "{{base_url}}/doctors/:id",
+            "description": "Update doctor by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Doctor ID"
+              }
+            ],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"specialization\": \"Neurology\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Doctor",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/doctors/:id",
+            "description": "Delete doctor by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Doctor ID"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Departments",
+      "item": [
+        {
+          "name": "Get All Departments",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/departments",
+            "description": "Get all departments"
+          }
+        },
+        {
+          "name": "Get Department by ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/departments/:id",
+            "description": "Get department by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Department ID"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Create Department",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/departments",
+            "description": "Create a new department",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Cardiology\",\n  \"description\": \"Department for heart-related treatments\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Department",
+          "request": {
+            "method": "PATCH",
+            "url": "{{base_url}}/departments/:id",
+            "description": "Update department by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Department ID"
+              }
+            ],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Cardiology & Heart Center\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Department",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/departments/:id",
+            "description": "Delete department by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Department ID"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Appointments",
+      "item": [
+        {
+          "name": "Get All Appointments",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/appointments",
+            "description": "Get all appointments"
+          }
+        },
+        {
+          "name": "Get Appointment by ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/appointments/:id",
+            "description": "Get appointment by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Appointment ID"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Create Appointment",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/appointments",
+            "description": "Create a new appointment",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patientId\": 1,\n  \"doctorId\": 1,\n  \"appointmentDate\": \"2024-01-15T10:00:00Z\",\n  \"status\": \"Scheduled\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Appointment",
+          "request": {
+            "method": "PATCH",
+            "url": "{{base_url}}/appointments/:id",
+            "description": "Update appointment by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Appointment ID"
+              }
+            ],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Completed\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Appointment",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/appointments/:id",
+            "description": "Delete appointment by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Appointment ID"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Medical Records",
+      "item": [
+        {
+          "name": "Get All Medical Records",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/medical-record",
+            "description": "Get all medical records"
+          }
+        },
+        {
+          "name": "Get Medical Record by ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/medical-record/:id",
+            "description": "Get medical record by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Medical Record ID"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Create Medical Record",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/medical-record",
+            "description": "Create a new medical record",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appointmentId\": 1,\n  \"anamnesis\": \"Pasien keluhan nyeri dada dan sesak nafas\",\n  \"notes\": \"Resep obat: obat nyeri, antibiotik\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Medical Record",
+          "request": {
+            "method": "PATCH",
+            "url": "{{base_url}}/medical-record/:id",
+            "description": "Update medical record by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Medical Record ID"
+              }
+            ],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"notes\": \"Resep obat diperbarui: tambahkan vitamin\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Medical Record",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/medical-record/:id",
+            "description": "Delete medical record by ID",
+            "urlParams": [
+              {
+                "key": "id",
+                "value": "1",
+                "description": "Medical Record ID"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import {
   JoinColumn,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -37,8 +38,11 @@ export class AppointmentEntity {
   @Column({ type: 'varchar', length: 50, default: 'Scheduled' })
   status: string; // Contoh: Scheduled, Completed, Cancelled
 
-  @OneToMany(() => MedicalRecordEntity, (medicalRecord) => medicalRecord.appointment)
-  medicalRecords: MedicalRecordEntity[];
+  @OneToOne(
+  () => MedicalRecordEntity,
+  (medicalRecord) => medicalRecord.appointment,
+  )
+  medicalRecord: MedicalRecordEntity;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

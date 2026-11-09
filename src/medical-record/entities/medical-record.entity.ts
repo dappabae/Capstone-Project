@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { AppointmentEntity } from '../../appointment/entities/appointment.entity.js';
 
 @Entity({ name: 'medical_records' })
 export class MedicalRecordEntity {
@@ -22,9 +23,13 @@ export class MedicalRecordEntity {
   @Column({ type: 'text' })
   notes: string;
 
-  @OneToOne('AppointmentEntity', 'medicalRecord', { onDelete: 'CASCADE' })
+  @OneToOne(
+  () => AppointmentEntity,
+  (appointment) => appointment.medicalRecord,
+  { onDelete: 'CASCADE' },
+  )
   @JoinColumn({ name: 'appointment_id' })
-  appointment: any;
+  appointment: AppointmentEntity;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
